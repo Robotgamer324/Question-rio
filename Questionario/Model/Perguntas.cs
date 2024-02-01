@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Models
 {
     internal class Perguntas
     {
+        public string id { get; set; }
+        public string pergunta { get; set; }
+
+
     }
 }

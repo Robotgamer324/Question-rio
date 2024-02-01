@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{F6BB104C-3BB8-48F3-9F36-9A01EE5AECE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Model\Models.csproj", "{F6BB104C-3BB8-48F3-9F36-9A01EE5AECE7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{4A21FB1A-0E9C-44FB-8714-41E5D98D0FBD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{5F0F29A4-0C0C-4C4A-BC8F-06548194A06E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIWinFormsApp", "UIWinFormsApp\UIWinFormsApp.csproj", "{EE1E287D-BE95-4598-9F7D-98C681A91B36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIWinFormsApp", "UIWinFormsApp\UIWinFormsApp.csproj", "{EE1E287D-BE95-4598-9F7D-98C681A91B36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

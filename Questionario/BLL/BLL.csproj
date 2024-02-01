@@ -44,5 +44,15 @@
     <Compile Include="BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{4a21fb1a-0e9c-44fb-8714-41e5d98d0fbd}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Models.csproj">
+      <Project>{f6bb104c-3bb8-48f3-9f36-9a01ee5aece7}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

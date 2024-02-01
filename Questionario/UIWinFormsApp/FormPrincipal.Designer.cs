@@ -37,6 +37,7 @@
             IniciarButteon.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             IniciarButteon.Cursor = Cursors.Cross;
             IniciarButteon.Enabled = false;
+            IniciarButteon.Font = new Font("Segoe UI", 16F);
             IniciarButteon.Location = new Point(159, 196);
             IniciarButteon.Name = "IniciarButteon";
             IniciarButteon.Size = new Size(397, 96);
@@ -44,13 +45,15 @@
             IniciarButteon.TabStop = false;
             IniciarButteon.Text = "Iniciar";
             IniciarButteon.UseVisualStyleBackColor = true;
+            IniciarButteon.Visible = false;
             IniciarButteon.Click += button1_Click;
             // 
             // label1
             // 
-            label1.Location = new Point(231, 134);
+            label1.Font = new Font("Vineta BT", 16.2F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            label1.Location = new Point(159, 92);
             label1.Name = "label1";
-            label1.Size = new Size(271, 59);
+            label1.Size = new Size(397, 59);
             label1.TabIndex = 1;
             label1.Text = "Teste Vocacional";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -59,9 +62,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.MenuHighlight;
             ClientSize = new Size(727, 450);
             Controls.Add(label1);
             Controls.Add(IniciarButteon);
+            ForeColor = SystemColors.MenuText;
             Name = "FormPrincipal";
             StartPosition = FormStartPosition.CenterParent;
             Text = "FormPrincipal";
