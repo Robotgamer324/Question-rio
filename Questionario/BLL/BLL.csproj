@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL.cs" />
+    <Compile Include="PerguntasBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RespostasBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
