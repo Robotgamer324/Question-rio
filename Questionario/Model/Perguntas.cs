@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    internal class Perguntas
+    public class Perguntas
     {
-        public string id { get; set; }
-        public string pergunta { get; set; }
+        public int Id { get; set; }
+        public string Pergunta { get; set; }
 
 
     }

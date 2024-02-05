@@ -1,3 +1,5 @@
+using BLL;
+
 namespace UIWinFormsApp1
 {
     public partial class FormPrincipal : Form
@@ -7,9 +9,19 @@ namespace UIWinFormsApp1
             InitializeComponent();
         }
 
-        private void bindingSourcePerguntas_CurrentChanged(object sender, EventArgs e)
+        private void FormPrincipal_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void bindingSourcePerguntas_CurrentChanged(object sender, EventArgs e)
+        {
+            // ...
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // ...
         }
     }
 }
