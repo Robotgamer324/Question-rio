@@ -33,4 +33,4 @@ INSERT INTO Respostas (pergunta_id, resposta, correta) VALUES
 (2, 'Barack Obama', 0);
 
 -- Selecionar todas as respostas
-SELECT * FROM Respostas;
+SELECT id, pergunta FROM Perguntas;
