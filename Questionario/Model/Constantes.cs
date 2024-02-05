@@ -9,7 +9,7 @@ namespace Models
 {
     public class Constantes
     {
-        public static string stringDeConexao = @"Data Source=.LAB5-06\SQLEXPRESS2022;Initial Catalog=Question-rio;User ID=SA;Password=Senailab05";
+        public static string stringDeConexao = @"Data Source=.VALDA\SQLEXPRESS;Initial Catalog=Question-rio;User ID=SA;Password=Senailab02";
         public static string StringDeConexao
         {
             get 

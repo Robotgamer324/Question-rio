@@ -6,5 +6,10 @@ namespace UIWinFormsApp1
         {
             InitializeComponent();
         }
+
+        private void bindingSourcePerguntas_CurrentChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{5F0F29A4-0C0C-4C4A-BC8F-06548194A06E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIWinFormsApp1", "UIWinFormsApp1\UIWinFormsApp1.csproj", "{D8927B9B-70F1-4E15-8B5F-D34D9AF8CE65}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5F0F29A4-0C0C-4C4A-BC8F-06548194A06E} = {5F0F29A4-0C0C-4C4A-BC8F-06548194A06E}
+		{F6BB104C-3BB8-48F3-9F36-9A01EE5AECE7} = {F6BB104C-3BB8-48F3-9F36-9A01EE5AECE7}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,10 @@ Global
 		{5F0F29A4-0C0C-4C4A-BC8F-06548194A06E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F0F29A4-0C0C-4C4A-BC8F-06548194A06E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F0F29A4-0C0C-4C4A-BC8F-06548194A06E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8927B9B-70F1-4E15-8B5F-D34D9AF8CE65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8927B9B-70F1-4E15-8B5F-D34D9AF8CE65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8927B9B-70F1-4E15-8B5F-D34D9AF8CE65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8927B9B-70F1-4E15-8B5F-D34D9AF8CE65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
