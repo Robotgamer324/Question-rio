@@ -1,4 +1,4 @@
-namespace UIWinFormsApp1
+namespace UIWindowsForms
 {
     internal static class Program
     {

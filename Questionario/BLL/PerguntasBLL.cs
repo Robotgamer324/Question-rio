@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class PerguntaBLL
+    internal class PerguntasBLL
     {
         public int Id { get; set; }
+
         public string Pergunta { get; set; }
 
-        public List<Perguntas> BuscarTodos()
+        public  List<Perguntas> BuscarTodos()
         {
-            return new PerguntasDAL().BuscarTodos();
-        }
+            return new PerguntaDAL().BuscarTodos();
+        } 
     }
 }
