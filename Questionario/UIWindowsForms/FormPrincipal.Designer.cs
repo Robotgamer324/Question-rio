@@ -28,74 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            bindingSourcePergunta = new BindingSource(components);
-            dataGridView1 = new DataGridView();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            perguntaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)bindingSourcePergunta).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            buttonIniciar = new Button();
             SuspendLayout();
             // 
-            // bindingSourcePergunta
+            // buttonIniciar
             // 
-            bindingSourcePergunta.DataSource = typeof(Models.Perguntas);
-            bindingSourcePergunta.CurrentChanged += bindingSourcePergunta_CurrentChanged;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToOrderColumns = true;
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, perguntaDataGridViewTextBoxColumn });
-            dataGridView1.DataSource = bindingSourcePergunta;
-            dataGridView1.Location = new Point(39, 46);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(696, 330);
-            dataGridView1.TabIndex = 0;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // perguntaDataGridViewTextBoxColumn
-            // 
-            perguntaDataGridViewTextBoxColumn.DataPropertyName = "Pergunta";
-            perguntaDataGridViewTextBoxColumn.HeaderText = "Pergunta";
-            perguntaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            perguntaDataGridViewTextBoxColumn.Name = "perguntaDataGridViewTextBoxColumn";
-            perguntaDataGridViewTextBoxColumn.ReadOnly = true;
-            perguntaDataGridViewTextBoxColumn.Width = 125;
+            buttonIniciar.Anchor = AnchorStyles.None;
+            buttonIniciar.Location = new Point(311, 221);
+            buttonIniciar.Name = "buttonIniciar";
+            buttonIniciar.Size = new Size(144, 54);
+            buttonIniciar.TabIndex = 0;
+            buttonIniciar.Text = "Iniciar";
+            buttonIniciar.UseVisualStyleBackColor = true;
+            buttonIniciar.Click += buttonIniciar_Click;
             // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
+            ClientSize = new Size(767, 496);
+            Controls.Add(buttonIniciar);
             Name = "FormPrincipal";
-            Text = "Form1";
+            Text = "FormPrincipal";
             Load += FormPrincipal_Load;
-            ((System.ComponentModel.ISupportInitialize)bindingSourcePergunta).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private BindingSource bindingSourcePergunta;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn perguntaDataGridViewTextBoxColumn;
+        private Button buttonIniciar;
     }
 }

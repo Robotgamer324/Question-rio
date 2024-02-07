@@ -1,4 +1,4 @@
-using DAL;
+using BLL;
 using Models;
 
 namespace UIWindowsForms
@@ -17,7 +17,15 @@ namespace UIWindowsForms
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            bindingSourcePergunta.DataSource = new Pergunta
+
+        }
+
+        private void buttonIniciar_Click(object sender, EventArgs e)
+        {
+            using (FormQuestionario frm = new FormQuestionario())
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }

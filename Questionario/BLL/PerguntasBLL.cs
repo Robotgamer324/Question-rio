@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    internal class PerguntasBLL
+    public class PerguntasBLL
     {
         public int Id { get; set; }
 
@@ -16,7 +16,7 @@ namespace BLL
 
         public  List<Perguntas> BuscarTodos()
         {
-            return new PerguntaDAL().BuscarTodos();
+            return new PerguntasDAL().BuscarTodos();
         } 
     }
 }
