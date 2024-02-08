@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UIWindowsForms
 {
-    public partial class FormBuscarRespostas : Form
+    public partial class FormIntroducao : Form
     {
-        public FormBuscarRespostas()
+        public FormIntroducao()
         {
             InitializeComponent();
         }

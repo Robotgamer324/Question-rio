@@ -10,6 +10,10 @@ namespace DAL
 
         public string Pergunta { get; set; }
 
+        public int id_categoria { get; set; }
+
+        public int id;
+        public string perguntas2;
         public List<Perguntas> BuscarTodos()
         {
             Perguntas perguntas;
@@ -27,8 +31,8 @@ namespace DAL
                     while (rd.Read())
                     {
                         perguntas = new Perguntas();
-                        perguntas.Id = (int)rd["Id"];
-                        perguntas.Pergunta = rd["pergunta"].ToString();
+                        perguntas.id = (int)rd["Id"];
+                        perguntas.pergunta = rd["pergunta"].ToString();
                         
                         perguntaslist.Add(perguntas);
                     }
@@ -64,8 +68,8 @@ namespace DAL
                     while (rd.Read())
                     {
                         Perguntas perguntas = new Perguntas();
-                        perguntas.Id = (int)rd["Id"];
-                        perguntas.Pergunta = rd["pergunta"].ToString();
+                        perguntas.id = (int)rd["Id"];
+                        perguntas.pergunta = rd["pergunta"].ToString();
                         
                         perguntasList.Add(perguntas);
 
@@ -119,7 +123,7 @@ namespace DAL
                 {
                     cn.Open();
 
-                    string sql = @"UPDATE Perguntas
+                    string sql = @"UPDATE id, perguntas
                               SET id = @id,
                                   pergunta = @pergunta,
                               WHERE Id = @Id";
@@ -147,19 +151,81 @@ namespace DAL
             SqlConnection cn = new SqlConnection(Constantes.StringDeConexao);
             try
             {
+                perguntas = new Perguntas();
                 SqlCommand cmd = cn.CreateCommand();
-                cmd.CommandText = "SELECT id, pergunta FROM Perguntas WHERE Id LIKE @Id";
+                cmd.CommandText = "SELECT id, pergunta, id_categoria FROM Perguntas WHERE Id LIKE @Id";
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@Id", _id + "%");
+                cmd.Parameters.AddWithValue("@Id", _id);
                 cn.Open();
                 using (SqlDataReader rd = cmd.ExecuteReader())
                 {
                     perguntas = new Perguntas();
                     while (rd.Read())
                     {
-                        perguntas.Id = (int)rd["Id"];
-                        perguntas.Pergunta = rd["Nome"].ToString();
-                     
+                        perguntas = new Perguntas();
+                        perguntas.id = (int)rd["Id"];
+                        perguntas.pergunta = rd["pergunta"].ToString();
+                        perguntas.id_categoria = (int)rd["id_categoria"];
+                       
+                    }
+                }
+                return perguntas;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar buscar o perguntas no banco de dados", ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public void Excluir()
+        {
+            using (SqlConnection cn = new SqlConnection(Constantes.StringDeConexao))
+            {
+                try
+                {
+                    cn.Open();
+
+                    string sql = @"DELETE FROM pergunta WHERE id = @id";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, cn))
+                    {
+                        cmd.Parameters.AddWithValue("@Id", this.Id);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Ocorreu um erro ao tentar excluir o produto no banco de dados.", ex);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+        }
+        public Perguntas BuscarPorIdCategoria(int _idCategoria)
+        {
+            Perguntas perguntas;
+            SqlConnection cn = new SqlConnection(Constantes.StringDeConexao);
+            try
+            {
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = "SELECT id, pergunta, id_categoria FROM Perguntas WHERE Id LIKE @Id_categoria";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@Id", _idCategoria + "%");
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    perguntas = new Perguntas();
+                    while (rd.Read())
+                    {
+                        perguntas.id = (int)rd["Id"];
+                        perguntas.pergunta = rd["pergunta"].ToString();
+
                     }
                 }
                 return perguntas;
@@ -173,5 +239,6 @@ namespace DAL
                 cn.Close();
             }
         }
+
     }
 }

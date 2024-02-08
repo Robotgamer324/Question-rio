@@ -1,6 +1,6 @@
 ﻿namespace UIWindowsForms
 {
-    partial class FormBuscarRespostas
+    partial class FormIntroducao
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            label1 = new Label();
             SuspendLayout();
             // 
-            // FormBuscarRespostas
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(157, 113);
+            label1.Name = "label1";
+            label1.Size = new Size(487, 224);
+            label1.TabIndex = 0;
+            label1.Text = "Parabens você finalizou este pequeno jogo vocacional!!!";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+          
+            // 
+            // FormIntroducao
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Name = "FormBuscarRespostas";
-            Text = "FormBuscarRespostas";
+            Controls.Add(label1);
+            Name = "FormIntroducao";
+            Text = "FormIntroducao";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Label label1;
     }
 }
