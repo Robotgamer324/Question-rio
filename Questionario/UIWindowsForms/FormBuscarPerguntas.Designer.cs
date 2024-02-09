@@ -34,9 +34,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.HotTrack;
             ClientSize = new Size(800, 450);
             Name = "FormBuscarPerguntas";
-            Text = "FormBuscarPerguntas";
+            ShowIcon = false;
             ResumeLayout(false);
         }
 

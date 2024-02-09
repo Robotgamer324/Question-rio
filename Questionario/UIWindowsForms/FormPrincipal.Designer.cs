@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             buttonIniciar = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // buttonIniciar
@@ -42,14 +43,29 @@
             buttonIniciar.UseVisualStyleBackColor = true;
             buttonIniciar.Click += buttonIniciar_Click;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.Control;
+            label1.Location = new Point(110, 96);
+            label1.Name = "label1";
+            label1.Size = new Size(546, 98);
+            label1.TabIndex = 1;
+            label1.Text = "Bem vindo\r\nVamos descobrir sua vocação!!!!!\r\n";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.HotTrack;
             ClientSize = new Size(767, 496);
+            Controls.Add(label1);
             Controls.Add(buttonIniciar);
+            ForeColor = SystemColors.ActiveCaptionText;
             Name = "FormPrincipal";
-            Text = "FormPrincipal";
+            ShowIcon = false;
             Load += FormPrincipal_Load;
             ResumeLayout(false);
         }
@@ -57,5 +73,6 @@
         #endregion
 
         private Button buttonIniciar;
+        private Label label1;
     }
 }

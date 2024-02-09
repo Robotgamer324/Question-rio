@@ -34,22 +34,24 @@
             // label1
             // 
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(157, 113);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(2, 113);
             label1.Name = "label1";
-            label1.Size = new Size(487, 224);
+            label1.Size = new Size(786, 230);
             label1.TabIndex = 0;
-            label1.Text = "Parabens você finalizou este pequeno jogo vocacional!!!";
+            label1.Text = "Parabens você finalizou este pequeno jogo vocacional!!!\r\nO curso que você mais se identificou foi Desenvolvedor de sistemas";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-          
+            label1.Click += label1_Click;
             // 
             // FormIntroducao
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.HotTrack;
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
             Name = "FormIntroducao";
-            Text = "FormIntroducao";
+            ShowIcon = false;
             ResumeLayout(false);
         }
 
