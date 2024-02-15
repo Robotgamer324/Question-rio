@@ -13,81 +13,54 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace UIWindowsForms
 {
-
     public partial class FormQuestionario : Form
     {
         public int IDs;
+        public int i;
 
-        public FormQuestionario()
+        public FormQuestionario(int _id, int _i)
         {
             InitializeComponent();
+            IDs = _id;
         }
         private void buttonProximo_Click(object sender, EventArgs e)
         {
-            FormQuestionario_Load(this, EventArgs.Empty);
-            checkBoxNao.Checked = false;
-            checkBoxSim.Enabled=false;
-            checkBoxTalvez.Checked = false;
-
+            this.Close();
         }
         public void FormQuestionario_Load(object sender, EventArgs e)
         {
-            IDs++;
             labelPergunta.Text = new PerguntasBLL().BuscarPorId(IDs).pergunta;
 
             if (labelPergunta.Text == "")
             {
+                IDs = -1;
                 using (FormIntroducao frm = new FormIntroducao())
                 {
                     frm.ShowDialog();
                 }
+                this.Close();
             }
-
-            checkBoxNao.DataBindings.Clear();
-            checkBoxNao.Checked = false;
-
-
         }
 
-
-        private void checkBoxSim_CheckedChanged(object sender, EventArgs e)
+        private void buttonProximo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (checkBoxNao.Checked == true || checkBoxTalvez.Checked == true)
-            {
-                checkBoxNao.Checked = false;
-                checkBoxTalvez.Checked = false;
-            }
-            else
-            {
-                checkBoxSim.Checked = true;
-            }
-        }
-        private void checkBoxNao_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxSim.Checked == true || checkBoxTalvez.Checked == true)
-            {
-                checkBoxSim.Checked = false;
-                checkBoxTalvez.Checked = false;
-            }
-            else
-            {
-                checkBoxNao.Checked = true;
-            }
+            FormQuestionario_Load(this, EventArgs.Empty);
         }
 
-        private void checkBoxTalvez_CheckedChanged(object sender, EventArgs e)
+
+        private void radioButtonNao_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxNao.Checked == true || checkBoxSim.Checked == true)
-            {
-                checkBoxNao.Checked = false;
-                checkBoxSim.Checked = false;
-            }
-            else
-            {
-                checkBoxTalvez.Checked = true;
-            }
+
         }
 
-        
+        private void radioButtonSim_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButtonTalvez_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

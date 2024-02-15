@@ -30,9 +30,9 @@
         {
             labelPergunta = new Label();
             buttonProximo = new Button();
-            checkBoxSim = new CheckBox();
-            checkBoxNao = new CheckBox();
-            checkBoxTalvez = new CheckBox();
+            radioButtonSim = new RadioButton();
+            radioButtonNao = new RadioButton();
+            radioButtonTalvez = new RadioButton();
             SuspendLayout();
             // 
             // labelPergunta
@@ -58,39 +58,46 @@
             buttonProximo.Text = "Proxima";
             buttonProximo.UseVisualStyleBackColor = true;
             buttonProximo.Click += buttonProximo_Click;
+            buttonProximo.KeyPress += buttonProximo_KeyPress;
             // 
-            // checkBoxSim
+            // radioButtonSim
             // 
-            checkBoxSim.AutoSize = true;
-            checkBoxSim.Location = new Point(372, 232);
-            checkBoxSim.Name = "checkBoxSim";
-            checkBoxSim.Size = new Size(56, 24);
-            checkBoxSim.TabIndex = 4;
-            checkBoxSim.Text = "Sim";
-            checkBoxSim.UseVisualStyleBackColor = true;
-            checkBoxSim.CheckedChanged += checkBoxSim_CheckedChanged;
+            radioButtonSim.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radioButtonSim.AutoSize = true;
+            radioButtonSim.Location = new Point(373, 232);
+            radioButtonSim.Name = "radioButtonSim";
+            radioButtonSim.Size = new Size(55, 24);
+            radioButtonSim.TabIndex = 7;
+            radioButtonSim.TabStop = true;
+            radioButtonSim.Text = "Sim";
+            radioButtonSim.UseVisualStyleBackColor = true;
+            radioButtonSim.CheckedChanged += radioButtonSim_CheckedChanged;
             // 
-            // checkBoxNao
+            // radioButtonNao
             // 
-            checkBoxNao.AutoSize = true;
-            checkBoxNao.Location = new Point(371, 266);
-            checkBoxNao.Name = "checkBoxNao";
-            checkBoxNao.Size = new Size(59, 24);
-            checkBoxNao.TabIndex = 5;
-            checkBoxNao.Text = "Não";
-            checkBoxNao.UseVisualStyleBackColor = true;
-            checkBoxNao.CheckedChanged += checkBoxNao_CheckedChanged;
+            radioButtonNao.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radioButtonNao.AutoSize = true;
+            radioButtonNao.Location = new Point(371, 266);
+            radioButtonNao.Name = "radioButtonNao";
+            radioButtonNao.Size = new Size(58, 24);
+            radioButtonNao.TabIndex = 7;
+            radioButtonNao.TabStop = true;
+            radioButtonNao.Text = "Não";
+            radioButtonNao.UseVisualStyleBackColor = true;
+            radioButtonNao.CheckedChanged += radioButtonNao_CheckedChanged;
             // 
-            // checkBoxTalvez
+            // radioButtonTalvez
             // 
-            checkBoxTalvez.AutoSize = true;
-            checkBoxTalvez.Location = new Point(371, 296);
-            checkBoxTalvez.Name = "checkBoxTalvez";
-            checkBoxTalvez.Size = new Size(71, 24);
-            checkBoxTalvez.TabIndex = 6;
-            checkBoxTalvez.Text = "Talvez";
-            checkBoxTalvez.UseVisualStyleBackColor = true;
-            checkBoxTalvez.CheckedChanged += checkBoxTalvez_CheckedChanged;
+            radioButtonTalvez.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radioButtonTalvez.AutoSize = true;
+            radioButtonTalvez.Location = new Point(371, 296);
+            radioButtonTalvez.Name = "radioButtonTalvez";
+            radioButtonTalvez.Size = new Size(70, 24);
+            radioButtonTalvez.TabIndex = 7;
+            radioButtonTalvez.TabStop = true;
+            radioButtonTalvez.Text = "Talvez";
+            radioButtonTalvez.UseVisualStyleBackColor = true;
+            radioButtonTalvez.CheckedChanged += radioButtonTalvez_CheckedChanged;
             // 
             // FormQuestionario
             // 
@@ -98,14 +105,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HotTrack;
             ClientSize = new Size(800, 450);
-            Controls.Add(checkBoxTalvez);
-            Controls.Add(checkBoxNao);
-            Controls.Add(checkBoxSim);
+            Controls.Add(radioButtonTalvez);
+            Controls.Add(radioButtonNao);
+            Controls.Add(radioButtonSim);
             Controls.Add(buttonProximo);
             Controls.Add(labelPergunta);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "FormQuestionario";
             ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Load += FormQuestionario_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -114,8 +122,8 @@
         #endregion
         private Label labelPergunta;
         private Button buttonProximo;
-        private CheckBox checkBoxSim;
-        private CheckBox checkBoxNao;
-        private CheckBox checkBoxTalvez;
+        private RadioButton radioButtonSim;
+        private RadioButton radioButtonNao;
+        private RadioButton radioButtonTalvez;
     }
 }
