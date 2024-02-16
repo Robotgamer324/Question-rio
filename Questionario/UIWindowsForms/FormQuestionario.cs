@@ -17,11 +17,16 @@ namespace UIWindowsForms
     {
         public int IDs;
         public int i;
+        public int idCategoriaMaisFrequente;
 
-        public FormQuestionario(int _id, int _i)
+        public FormQuestionario(int _id)
         {
             InitializeComponent();
             IDs = _id;
+            if (IDs == 0)
+            {
+                IDs = 1;
+            }
         }
         private void buttonProximo_Click(object sender, EventArgs e)
         {
@@ -33,12 +38,14 @@ namespace UIWindowsForms
 
             if (labelPergunta.Text == "")
             {
+                FinalizarQuestionario();
                 IDs = -1;
-                using (FormIntroducao frm = new FormIntroducao())
+                using (FormIntroducao frm = new FormIntroducao(idCategoriaMaisFrequente))
                 {
                     frm.ShowDialog();
+                    return;
                 }
-                this.Close();
+
             }
         }
 
@@ -55,11 +62,41 @@ namespace UIWindowsForms
 
         private void radioButtonSim_CheckedChanged(object sender, EventArgs e)
         {
+            sim.Add(new PerguntasBLL().BuscarPorId(IDs).id_categoria);
 
         }
 
         private void radioButtonTalvez_CheckedChanged(object sender, EventArgs e)
         {
+
+        }
+        List<int> sim = new List<int>();
+        public int FinalizarQuestionario()
+        {
+            // Calcular a contagem de repetições para cada ID de categoria
+            Dictionary<int, int> contagem = sim.GroupBy(id => id)
+                                                .ToDictionary(group => group.Key, group => group.Count());
+
+            // Obter a categoria com a maior contagem de repetições
+            idCategoriaMaisFrequente = contagem.OrderByDescending(pair => pair.Value).First().Key;
+
+            // Retornar o ID da categoria mais frequente
+            return idCategoriaMaisFrequente;
+        }
+
+        private void buttonSair_Click(object sender, EventArgs e)
+        {
+            // Close the current form
+            this.Close();
+
+            // Open a new instance of the same form
+            FormQuestionario newForm = new FormQuestionario(1024); // Adjust the ID as needed
+            newForm.ShowDialog();
+        }
+
+        private void buttonSair_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
 
         }
     }

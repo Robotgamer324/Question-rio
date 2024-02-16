@@ -52,6 +52,7 @@
             Controls.Add(label1);
             Name = "FormIntroducao";
             ShowIcon = false;
+            Load += FormIntroducao_Load;
             ResumeLayout(false);
         }
 

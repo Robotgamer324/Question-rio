@@ -33,6 +33,7 @@
             radioButtonSim = new RadioButton();
             radioButtonNao = new RadioButton();
             radioButtonTalvez = new RadioButton();
+            buttonSair = new Button();
             SuspendLayout();
             // 
             // labelPergunta
@@ -51,7 +52,7 @@
             // buttonProximo
             // 
             buttonProximo.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            buttonProximo.Location = new Point(353, 408);
+            buttonProximo.Location = new Point(417, 408);
             buttonProximo.Name = "buttonProximo";
             buttonProximo.Size = new Size(94, 30);
             buttonProximo.TabIndex = 3;
@@ -99,6 +100,18 @@
             radioButtonTalvez.UseVisualStyleBackColor = true;
             radioButtonTalvez.CheckedChanged += radioButtonTalvez_CheckedChanged;
             // 
+            // buttonSair
+            // 
+            buttonSair.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttonSair.Location = new Point(306, 408);
+            buttonSair.Name = "buttonSair";
+            buttonSair.Size = new Size(94, 30);
+            buttonSair.TabIndex = 3;
+            buttonSair.Text = "Sair";
+            buttonSair.UseVisualStyleBackColor = true;
+            buttonSair.Click += buttonSair_Click;
+            buttonSair.KeyPress += buttonSair_KeyPress;
+            // 
             // FormQuestionario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -108,6 +121,7 @@
             Controls.Add(radioButtonTalvez);
             Controls.Add(radioButtonNao);
             Controls.Add(radioButtonSim);
+            Controls.Add(buttonSair);
             Controls.Add(buttonProximo);
             Controls.Add(labelPergunta);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -125,5 +139,6 @@
         private RadioButton radioButtonSim;
         private RadioButton radioButtonNao;
         private RadioButton radioButtonTalvez;
+        private Button buttonSair;
     }
 }

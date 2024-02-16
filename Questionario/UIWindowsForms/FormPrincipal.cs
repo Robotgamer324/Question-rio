@@ -5,6 +5,8 @@ namespace UIWindowsForms
 {
     public partial class FormPrincipal : Form
     {
+        public int id;
+        //public int i;
         public FormPrincipal()
         {
             InitializeComponent();
@@ -22,14 +24,14 @@ namespace UIWindowsForms
 
         private void buttonIniciar_Click(object sender, EventArgs e)
         {
-            int i = 1;
-            int id = 1;
-            while (id > 0)
-                using (FormQuestionario frm = new FormQuestionario(id, i))
+            
+           
+            while (id >= 0)
+                using (FormQuestionario frm = new FormQuestionario(id))
                 {
                     frm.ShowDialog();
                     id = frm.IDs + 1;
-                    i = frm.i + 1;
+                    
                 }
         }
     }
