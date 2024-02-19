@@ -1,6 +1,4 @@
-﻿using BLL;
-using Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+
+using BLL;
+using Models;
 
 namespace UIWindowsForms
 {
@@ -19,85 +19,79 @@ namespace UIWindowsForms
         public int i;
         public int idCategoriaMaisFrequente;
 
-        public FormQuestionario(int _id)
+        private FormPrincipal _formPrincipal;
+
+        public FormQuestionario(int _id, FormPrincipal formPrincipal)
         {
             InitializeComponent();
             IDs = _id;
+            _formPrincipal = formPrincipal;
+
             if (IDs == 0)
             {
                 IDs = 1;
             }
+
+            CarregarPergunta();
         }
-        private void buttonProximo_Click(object sender, EventArgs e)
+
+        private void CarregarPergunta()
         {
-            this.Close();
-        }
-        public void FormQuestionario_Load(object sender, EventArgs e)
-        {
-            labelPergunta.Text = new PerguntasBLL().BuscarPorId(IDs).pergunta;
+            PerguntasBLL perguntasBLL = new PerguntasBLL();
+            Perguntas pergunta = perguntasBLL.BuscarPorId(IDs);
+
+            labelPergunta.Text = pergunta.pergunta;
+            idCategoriaMaisFrequente = pergunta.id_categoria;
 
             if (labelPergunta.Text == "")
             {
-                FinalizarQuestionario();
                 IDs = -1;
                 using (FormIntroducao frm = new FormIntroducao(idCategoriaMaisFrequente))
                 {
                     frm.ShowDialog();
                     return;
                 }
-
             }
         }
 
-        private void buttonProximo_KeyPress(object sender, KeyPressEventArgs e)
+        private void buttonProximo_Click(object sender, EventArgs e)
         {
-            FormQuestionario_Load(this, EventArgs.Empty);
+
+
+            this.Close();
         }
 
-
-        private void radioButtonNao_CheckedChanged(object sender, EventArgs e)
+        private void SalvarResposta()
         {
-
-        }
-
-        private void radioButtonSim_CheckedChanged(object sender, EventArgs e)
-        {
-            sim.Add(new PerguntasBLL().BuscarPorId(IDs).id_categoria);
-
-        }
-
-        private void radioButtonTalvez_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        List<int> sim = new List<int>();
-        public int FinalizarQuestionario()
-        {
-            // Calcular a contagem de repetições para cada ID de categoria
-            Dictionary<int, int> contagem = sim.GroupBy(id => id)
-                                                .ToDictionary(group => group.Key, group => group.Count());
-
-            // Obter a categoria com a maior contagem de repetições
-            idCategoriaMaisFrequente = contagem.OrderByDescending(pair => pair.Value).First().Key;
-
-            // Retornar o ID da categoria mais frequente
-            return idCategoriaMaisFrequente;
+            if (radioButtonSim.Checked)
+            {
+                _formPrincipal.SaveSelectedCategoria(new PerguntasBLL().BuscarPorId(IDs).id_categoria);
+            }
         }
 
         private void buttonSair_Click(object sender, EventArgs e)
         {
-            // Close the current form
-            this.Close();
+           
 
-            // Open a new instance of the same form
-            FormQuestionario newForm = new FormQuestionario(1024); // Adjust the ID as needed
-            newForm.ShowDialog();
+            // Ordenar as categorias selecionadas
+            _formPrincipal.OrdernarCategorias();
+
+            // Obter a categoria mais frequente
+            var categoriaMaisFrequente = _formPrincipal._categoriasSelecionadas.First();
+
+            // Abrir o FormIntrodução com a categoria mais frequente
+            using (FormIntroducao frm = new FormIntroducao(categoriaMaisFrequente))
+            {
+                frm.ShowDialog();
+            }
+
+            // Fechar o FormQuestionario
+            this.Close();
         }
 
-        private void buttonSair_KeyPress(object sender, KeyPressEventArgs e)
+        private void radioButtonSim_CheckedChanged(object sender, EventArgs e)
         {
-
-
+            SalvarResposta();
         }
     }
 }

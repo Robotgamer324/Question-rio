@@ -1,3 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 using BLL;
 using Models;
 
@@ -6,33 +16,31 @@ namespace UIWindowsForms
     public partial class FormPrincipal : Form
     {
         public int id;
-        //public int i;
+        private readonly List<int> _categoriasSelecionadas;
+
         public FormPrincipal()
         {
             InitializeComponent();
-        }
-
-        private void bindingSourcePergunta_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-
+            _categoriasSelecionadas = new List<int>();
         }
 
         private void buttonIniciar_Click(object sender, EventArgs e)
         {
-            
-           
+            id = 0;
+
             while (id >= 0)
-                using (FormQuestionario frm = new FormQuestionario(id))
+            {
+                using (FormQuestionario frm = new FormQuestionario(id, this))
                 {
                     frm.ShowDialog();
                     id = frm.IDs + 1;
-                    
                 }
+            }
+        }
+
+        public void SaveSelectedCategoria(int idCategoria)
+        {
+            _categoriasSelecionadas.Add(idCategoria);
         }
     }
 }

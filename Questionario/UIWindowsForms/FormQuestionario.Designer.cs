@@ -59,7 +59,6 @@
             buttonProximo.Text = "Proxima";
             buttonProximo.UseVisualStyleBackColor = true;
             buttonProximo.Click += buttonProximo_Click;
-            buttonProximo.KeyPress += buttonProximo_KeyPress;
             // 
             // radioButtonSim
             // 
@@ -85,7 +84,6 @@
             radioButtonNao.TabStop = true;
             radioButtonNao.Text = "Não";
             radioButtonNao.UseVisualStyleBackColor = true;
-            radioButtonNao.CheckedChanged += radioButtonNao_CheckedChanged;
             // 
             // radioButtonTalvez
             // 
@@ -98,7 +96,6 @@
             radioButtonTalvez.TabStop = true;
             radioButtonTalvez.Text = "Talvez";
             radioButtonTalvez.UseVisualStyleBackColor = true;
-            radioButtonTalvez.CheckedChanged += radioButtonTalvez_CheckedChanged;
             // 
             // buttonSair
             // 
@@ -110,7 +107,6 @@
             buttonSair.Text = "Sair";
             buttonSair.UseVisualStyleBackColor = true;
             buttonSair.Click += buttonSair_Click;
-            buttonSair.KeyPress += buttonSair_KeyPress;
             // 
             // FormQuestionario
             // 
@@ -128,7 +124,6 @@
             Name = "FormQuestionario";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Load += FormQuestionario_Load;
             ResumeLayout(false);
             PerformLayout();
         }

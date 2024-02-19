@@ -3,6 +3,7 @@ using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,6 +44,17 @@ namespace BLL
         public void BuscarPorIdCategoria(int _idCategoria)
         {
             new PerguntasDAL().BuscarPorIdCategoria(_idCategoria);
+        }
+        public List<int> ObterListaComIdCategoria(int _idCategoria)
+        {
+            // Cria uma nova lista vazia
+            List<int> listaSim = new List<int>();
+
+            // Adiciona o valor de _idCategoria à lista
+            listaSim.Add(_idCategoria);
+
+            // Retorna a lista
+            return listaSim;
         }
 
     }

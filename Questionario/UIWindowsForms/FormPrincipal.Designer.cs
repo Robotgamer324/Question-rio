@@ -66,7 +66,6 @@
             ForeColor = SystemColors.ActiveCaptionText;
             Name = "FormPrincipal";
             ShowIcon = false;
-            Load += FormPrincipal_Load;
             ResumeLayout(false);
         }
 
