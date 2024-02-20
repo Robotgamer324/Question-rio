@@ -1,6 +1,6 @@
 ﻿namespace UIWindowsForms
 {
-    partial class FormIntroducao
+    partial class FormLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             SuspendLayout();
             // 
-            // label1
-            // 
-            label1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(12, 105);
-            label1.Name = "label1";
-            label1.Size = new Size(786, 230);
-            label1.TabIndex = 0;
-            label1.Text = "Parabens você finalizou este pequeno jogo vocacional!!!\r\nO curso que você mais se identificou foi Desenvolvedor de sistemas";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click;
-            // 
-            // FormIntroducao
+            // FormLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.HotTrack;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label1);
-            Name = "FormIntroducao";
-            ShowIcon = false;
-            Load += FormIntroducao_Load;
+            ClientSize = new Size(355, 505);
+            Name = "FormLogin";
+            Text = "FormLogin";
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Label label1;
     }
 }

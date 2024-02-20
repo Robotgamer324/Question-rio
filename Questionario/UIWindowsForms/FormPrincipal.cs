@@ -16,7 +16,7 @@ namespace UIWindowsForms
     public partial class FormPrincipal : Form
     {
         public int id;
-        private readonly List<int> _categoriasSelecionadas;
+        public readonly List<int> _categoriasSelecionadas;
 
         public FormPrincipal()
         {
@@ -41,6 +41,11 @@ namespace UIWindowsForms
         public void SaveSelectedCategoria(int idCategoria)
         {
             _categoriasSelecionadas.Add(idCategoria);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

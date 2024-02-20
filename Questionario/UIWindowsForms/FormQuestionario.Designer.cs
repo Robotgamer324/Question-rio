@@ -32,7 +32,6 @@
             buttonProximo = new Button();
             radioButtonSim = new RadioButton();
             radioButtonNao = new RadioButton();
-            radioButtonTalvez = new RadioButton();
             buttonSair = new Button();
             SuspendLayout();
             // 
@@ -85,18 +84,6 @@
             radioButtonNao.Text = "Não";
             radioButtonNao.UseVisualStyleBackColor = true;
             // 
-            // radioButtonTalvez
-            // 
-            radioButtonTalvez.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            radioButtonTalvez.AutoSize = true;
-            radioButtonTalvez.Location = new Point(371, 296);
-            radioButtonTalvez.Name = "radioButtonTalvez";
-            radioButtonTalvez.Size = new Size(70, 24);
-            radioButtonTalvez.TabIndex = 7;
-            radioButtonTalvez.TabStop = true;
-            radioButtonTalvez.Text = "Talvez";
-            radioButtonTalvez.UseVisualStyleBackColor = true;
-            // 
             // buttonSair
             // 
             buttonSair.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -114,7 +101,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HotTrack;
             ClientSize = new Size(800, 450);
-            Controls.Add(radioButtonTalvez);
             Controls.Add(radioButtonNao);
             Controls.Add(radioButtonSim);
             Controls.Add(buttonSair);
@@ -133,7 +119,6 @@
         private Button buttonProximo;
         private RadioButton radioButtonSim;
         private RadioButton radioButtonNao;
-        private RadioButton radioButtonTalvez;
         private Button buttonSair;
     }
 }

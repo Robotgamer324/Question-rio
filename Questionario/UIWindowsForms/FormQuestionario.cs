@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using BLL;
 using Models;
+using UIWindowsForms; // Adicione este namespace
 
 namespace UIWindowsForms
 {
@@ -71,23 +72,19 @@ namespace UIWindowsForms
 
         private void buttonSair_Click(object sender, EventArgs e)
         {
-           
+            // Obtenha a instância do FormPrincipal
+            FormPrincipal formPrincipal = (FormPrincipal)Application.OpenForms["FormPrincipal"];
 
-            // Ordenar as categorias selecionadas
-            _formPrincipal.OrdernarCategorias();
+            // Obtenha a lista de categorias selecionadas
+            List<int> categoriasSelecionadas = formPrincipal._categoriasSelecionadas; // Public access
 
-            // Obter a categoria mais frequente
-            var categoriaMaisFrequente = _formPrincipal._categoriasSelecionadas.First();
+            idCategoriaMaisFrequente = UtilityHelper.GetMostFrequentValueFromList(categoriasSelecionadas);
 
-            // Abrir o FormIntrodução com a categoria mais frequente
-            using (FormIntroducao frm = new FormIntroducao(categoriaMaisFrequente))
-            {
-                frm.ShowDialog();
-            }
-
-            // Fechar o FormQuestionario
+            MessageBox.Show($"A categoria mais frequente é: {idCategoriaMaisFrequente}");
+            
             this.Close();
         }
+
 
         private void radioButtonSim_CheckedChanged(object sender, EventArgs e)
         {
