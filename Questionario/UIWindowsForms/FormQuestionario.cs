@@ -70,25 +70,15 @@ namespace UIWindowsForms
             }
         }
 
-        private void buttonSair_Click(object sender, EventArgs e)
-        {
-            // Obtenha a instância do FormPrincipal
-            FormPrincipal formPrincipal = (FormPrincipal)Application.OpenForms["FormPrincipal"];
-
-            // Obtenha a lista de categorias selecionadas
-            List<int> categoriasSelecionadas = formPrincipal._categoriasSelecionadas; // Public access
-
-            idCategoriaMaisFrequente = UtilityHelper.GetMostFrequentValueFromList(categoriasSelecionadas);
-
-            MessageBox.Show($"A categoria mais frequente é: {idCategoriaMaisFrequente}");
-            
-            this.Close();
-        }
-
-
         private void radioButtonSim_CheckedChanged(object sender, EventArgs e)
         {
             SalvarResposta();
+        }
+
+        private void buttonSair_Click(object sender, EventArgs e)
+        {
+            _formPrincipal.sair = false;
+            this.Close();
         }
     }
 }
