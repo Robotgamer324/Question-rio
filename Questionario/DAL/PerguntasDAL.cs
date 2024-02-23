@@ -153,7 +153,7 @@ namespace DAL
             {
                 perguntas = new Perguntas();
                 SqlCommand cmd = cn.CreateCommand();
-                cmd.CommandText = "SELECT id, pergunta, id_categoria FROM Perguntas WHERE Id LIKE @Id";
+                cmd.CommandText = "SELECT id, pergunta, id_categoria FROM Perguntas WHERE id LIKE @Id";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@Id", _id);
                 cn.Open();

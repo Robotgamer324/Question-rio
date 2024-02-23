@@ -1,1 +1,1 @@
-SELECT*FROM Perguntas
+SELECT id, pergunta, id_categoria FROM Perguntas where id=2

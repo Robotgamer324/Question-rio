@@ -33,6 +33,7 @@ namespace UIWindowsForms
             {
                 using (FormQuestionario frm = new FormQuestionario(id, this))
                 {
+                    if (sair == false) { break; }
                     frm.ShowDialog();
                     id = frm.IDs + 1;
                 }

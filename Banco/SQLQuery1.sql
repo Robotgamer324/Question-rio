@@ -11,33 +11,57 @@ CREATE TABLE Perguntas (
 
 );
 
-insert into Perguntas values('você aprendeu a dirigir cedo?', 1),
-('você tem interesse em manutençao automotiva?', 1),
-('Você se sente confortável trabalhando com computadores e tecnologia em geral?', 2),
-('Você já teve alguma experiência anterior com programação ou desenvolvimento de software?', 2),
-('Você tem interesse em criar e desenvolver sites, aplicativos web e outras soluções online?', 3),
-('Você já teve alguma experiência anterior com HTML, CSS, JavaScript ou outras linguagens de programação relacionadas à web?', 3),
---('Quanto mais conectados estamos, mais importante se torna entender como funcionam as redes de computadores, não é verdade?', 4),
---('Em um mundo cada vez mais dependente da tecnologia, não seria valioso ter habilidades para configurar e manter redes de computadores?', 4)
-insert into Perguntas values--('Quanto mais conectados estamos, mais importante se torna entender como funcionam as redes de computadores, não é verdade?',5),
---('Em um mundo cada vez mais dependente da tecnologia, não seria valioso ter habilidades para configurar e manter redes de computadores?',5),
-('Em um mundo onde a eletricidade e a eletrônica estão em toda parte, não é crucial entender como esses sistemas funcionam?',6),
-('Diante da crescente demanda por tecnologias mais eficientes e sustentáveis, não é importante ter habilidades em eletroeletrônica para contribuir com soluções inovadoras?',6),
-('Em um mundo onde a integração entre sistemas elétricos e mecânicos é essencial, não é crucial entender como esses componentes interagem?',7),
-('Diante da crescente demanda por tecnologias mais eficientes e automatizadas, não é importante ter habilidades em eletromecânica para projetar e manter esses sistemas?',7),
-('Em um mundo onde a eficiência na cadeia de suprimentos é crucial para o sucesso de empresas de todos os setores, não é essencial entender os princípios da logística?',8),
-('Diante da crescente demanda por métodos eficazes de gestão de estoque, transporte e distribuição, não é importante ter habilidades em logística para otimizar esses processos?',8),
-('voce tem interesse em aprender o basico da computaçao?',9),
-('Você já imaginou como aprofundar seu entendimento sobre computadores poderia facilitar suas interações com a tecnologia no dia a dia?',9),
-('Você já se perguntou como os computadores funcionam por dentro e como realizar a manutenção básica para mantê-los funcionando corretamente?',10),
-('Você já considerou a possibilidade de aprender a diagnosticar e resolver problemas comuns de hardware e software em computadores?',10)
+INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Tem facilidade em aprender novas tecnologias?', 1);
+INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você se considera paciente e detalhista?', 1);
+INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você se considera proativo e capaz de resolver problemas de forma independente?', 1);
 
+INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você tem familiaridade com ferramentas manuais básicas (chaves, alicates, etc.)?', 2);
+INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você já operou máquinas-ferramentas como tornos ou fresadoras?', 2);
+INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você se sente seguro em trabalhar com ferramentas e equipamentos potencialmente perigosos?', 2);
+
+INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você gosta de ler e se aprofundar em diferentes temas?', 3);
+INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você se considera uma pessoa comunicativa e empática?', 3);
+INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você tem facilidade para analisar textos e interpretar dados?', 3);
+
+INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você se fascina com o mundo natural e seus mistérios?', 4);
+INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você tem boa capacidade de argumentação e debate?', 4);
+INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você se considera uma pessoa organizada e metódica em seu trabalho?', 4);
+
+update Perguntas set pergunta =('Você tem curiosidade de saber como o mundo funciona?') where id=10
+
+insert into Categoria values ('Mecanica'),('Humanas'),('Ciencias Natureza')
+
+select *from Perguntas
+select * from Categoria
+
+update Categoria set categoria =('TI') where id=1
 
 SELECT pergunta, id_categoria FROM Perguntas 
 
-declare @id int
+declare @id int 
 declare @pergunta Varchar(250)
 declare @id_categoria INT
 
 
-UPDATE Perguntas  SET pergunta=('Você já teve alguma experiência anterior com HTML, CSS, JavaScript ou outras linguagens de programação relacionadas à web?') WHERE Id = 6
+UPDATE Perguntas  SET id=(1)WHERE Id = 2
+
+CREATE TABLE Categoria (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    Categoria varchar(250)
+);
+
+ALTER TABLE Perguntas
+ADD CONSTRAINT fk_pergunta_categoria
+FOREIGN KEY (Id_categoria)
+REFERENCES Categoria (id);
+
+drop table Perguntas
+
+create table Usuario(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	Usuario varchar(250),
+	Senha varchar (6),
+	Administrador bit
+);
+
+select id, Categoria from Categoria where id =

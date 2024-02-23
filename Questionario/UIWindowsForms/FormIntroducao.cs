@@ -13,11 +13,18 @@ namespace UIWindowsForms
 {
     public partial class FormIntroducao : Form
     {
-        public int id_categoria;
-        public FormIntroducao(int _idCategoriaMaisFrequente)
+        public int _id_categoria;
+        public string NomeCategoria;
+
+        private FormQuestionario _questionario;
+        public FormIntroducao(int idCategoriaMaisFrequente, FormQuestionario questionario)
         {
-            id_categoria = _idCategoriaMaisFrequente;
             InitializeComponent();
+            _questionario = questionario;
+            _id_categoria = idCategoriaMaisFrequente;
+            CategoriaBLL categoriaBLL = new CategoriaBLL();
+            NomeCategoria = categoriaBLL.BuscarPorId(_id_categoria).categoria;
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -27,7 +34,13 @@ namespace UIWindowsForms
 
         private void FormIntroducao_Load(object sender, EventArgs e)
         {
-            label1.Text = id_categoria.ToString();
+            label1.Text = ("Parabens você uma grande vocação para " + NomeCategoria.ToString());
+        }
+
+        private void buttonSair_Click(object sender, EventArgs e)
+        {
+            _questionario.sair = false;
+            this.Close();
         }
     }
 }

@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             label1 = new Label();
-            label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            label3 = new Label();
+            labelSenha = new Label();
+            textBoxLogin = new TextBox();
+            textBoxSenha = new TextBox();
+            labelLogin = new Label();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -46,39 +46,39 @@
             label1.Size = new Size(0, 20);
             label1.TabIndex = 0;
             // 
-            // label2
+            // labelSenha
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(176, 211);
-            label2.Name = "label2";
-            label2.Size = new Size(49, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Senha";
+            labelSenha.AutoSize = true;
+            labelSenha.Location = new Point(176, 211);
+            labelSenha.Name = "labelSenha";
+            labelSenha.Size = new Size(49, 20);
+            labelSenha.TabIndex = 1;
+            labelSenha.Text = "Senha";
             // 
-            // textBox1
+            // textBoxLogin
             // 
-            textBox1.Location = new Point(93, 169);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(215, 27);
-            textBox1.TabIndex = 2;
+            textBoxLogin.Location = new Point(93, 169);
+            textBoxLogin.Name = "textBoxLogin";
+            textBoxLogin.Size = new Size(215, 27);
+            textBoxLogin.TabIndex = 2;
             // 
-            // textBox2
+            // textBoxSenha
             // 
-            textBox2.Location = new Point(93, 248);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(215, 27);
-            textBox2.TabIndex = 3;
-            textBox2.TextChanged += textBox2_TextChanged;
+            textBoxSenha.Location = new Point(93, 248);
+            textBoxSenha.Name = "textBoxSenha";
+            textBoxSenha.Size = new Size(215, 27);
+            textBoxSenha.TabIndex = 3;
+            textBoxSenha.TextChanged += textBox2_TextChanged;
             // 
-            // label3
+            // labelLogin
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(179, 146);
-            label3.Name = "label3";
-            label3.Size = new Size(46, 20);
-            label3.TabIndex = 1;
-            label3.Text = "Login";
-            label3.Click += label3_Click;
+            labelLogin.AutoSize = true;
+            labelLogin.Location = new Point(179, 146);
+            labelLogin.Name = "labelLogin";
+            labelLogin.Size = new Size(46, 20);
+            labelLogin.TabIndex = 1;
+            labelLogin.Text = "Login";
+            labelLogin.Click += label3_Click;
             // 
             // pictureBox1
             // 
@@ -96,10 +96,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(401, 427);
             Controls.Add(pictureBox1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(textBoxSenha);
+            Controls.Add(textBoxLogin);
+            Controls.Add(labelLogin);
+            Controls.Add(labelSenha);
             Controls.Add(label1);
             Name = "FormLogin";
             ShowIcon = false;
@@ -111,10 +111,10 @@
         #endregion
 
         private Label label1;
-        private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Label label3;
+        private Label labelSenha;
+        private TextBox textBoxLogin;
+        private TextBox textBoxSenha;
+        private Label labelLogin;
         private PictureBox pictureBox1;
     }
 }
