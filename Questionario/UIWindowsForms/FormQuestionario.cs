@@ -34,9 +34,9 @@ namespace UIWindowsForms
             }
 
             CarregarPergunta();
-            if(sair=false) 
+            if (sair = false)
             {
-                _formPrincipal.sair = false; 
+                _formPrincipal.sair = false;
             };
         }
 
@@ -50,17 +50,17 @@ namespace UIWindowsForms
 
             if (labelPergunta.Text == "")
             {
-                idCategoriaMaisFrequente=  UtilityHelper.GetMostFrequentValueFromList(_formPrincipal._categoriasSelecionadas);
+                idCategoriaMaisFrequente = UtilityHelper.GetMostFrequentValueFromList(_formPrincipal._categoriasSelecionadas);
                 IDs = -1;
 
                 using (FormIntroducao frm = new FormIntroducao(idCategoriaMaisFrequente, this))
                 {
                     frm.ShowDialog();
-                    _formPrincipal.sair=false;
+                    _formPrincipal.sair = false;
                 }
-                
+
             }
-            
+
         }
 
         private void buttonProximo_Click(object sender, EventArgs e)
@@ -85,8 +85,13 @@ namespace UIWindowsForms
 
         public void buttonSair_Click(object sender, EventArgs e)
         {
-            _formPrincipal.sair = sair= false;
+            _formPrincipal.sair = sair = false;
             this.Close();
+        }
+
+        private void FormQuestionario_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

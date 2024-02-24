@@ -23,13 +23,11 @@ INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você gosta de ler e se a
 INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você se considera uma pessoa comunicativa e empática?', 3);
 INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você tem facilidade para analisar textos e interpretar dados?', 3);
 
-INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você se fascina com o mundo natural e seus mistérios?', 4);
+INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você tem curiosidade de saber como o mundo funciona?', 4);
 INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você tem boa capacidade de argumentação e debate?', 4);
 INSERT INTO Perguntas (pergunta, Id_categoria) VALUES ('Você se considera uma pessoa organizada e metódica em seu trabalho?', 4);
 
-update Perguntas set pergunta =('Você tem curiosidade de saber como o mundo funciona?') where id=10
-
-insert into Categoria values ('Mecanica'),('Humanas'),('Ciencias Natureza')
+insert into Categoria values ('TI'),('Mecanica'),('Humanas'),('Ciencias Natureza')
 
 select *from Perguntas
 select * from Categoria
@@ -64,4 +62,10 @@ create table Usuario(
 	Administrador bit
 );
 
-select id, Categoria from Categoria where id =
+--select id, Categoria from Categoria where id =
+select id, usuario, senha, administrador from usuario
+insert into usuario (usuario, senha, administrador) values ('ADIMIN','123ABC',1)
+
+declare @usuario varchar(250)
+declare @senha varchar(6)
+declare @administrador bit 

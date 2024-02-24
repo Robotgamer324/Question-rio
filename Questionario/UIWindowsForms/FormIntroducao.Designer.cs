@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormIntroducao));
             label1 = new Label();
             buttonSair = new Button();
             SuspendLayout();
             // 
             // label1
             // 
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.ForeColor = SystemColors.ActiveCaptionText;
             label1.Location = new Point(12, 34);
             label1.Name = "label1";
             label1.Size = new Size(786, 230);
             label1.TabIndex = 0;
-            label1.Text = "Parabens você finalizou este pequeno jogo vocacional!!!\r\nO curso que você mais se identificou foi Desenvolvedor de sistemas";
+            label1.Text = "label1";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
             // 
@@ -58,12 +60,15 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.HotTrack;
+            BackColor = SystemColors.Control;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
             Controls.Add(buttonSair);
             Controls.Add(label1);
             Name = "FormIntroducao";
             ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Load += FormIntroducao_Load;
             ResumeLayout(false);
         }

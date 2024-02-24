@@ -34,7 +34,7 @@ namespace UIWindowsForms
 
         private void FormIntroducao_Load(object sender, EventArgs e)
         {
-            label1.Text = ("Parabens você uma grande vocação para " + NomeCategoria.ToString());
+            label1.Text = ("Parabens você tem uma grande vocação para " + NomeCategoria.ToString());
         }
 
         private void buttonSair_Click(object sender, EventArgs e)
