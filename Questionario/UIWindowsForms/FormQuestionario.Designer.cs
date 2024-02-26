@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQuestionario));
             labelPergunta = new Label();
             buttonProximo = new Button();
             radioButtonSim = new RadioButton();
@@ -41,21 +40,21 @@
             labelPergunta.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelPergunta.BackColor = Color.Transparent;
             labelPergunta.FlatStyle = FlatStyle.Flat;
-            labelPergunta.Font = new Font("Segoe UI", 22F, FontStyle.Regular, GraphicsUnit.Point);
-            labelPergunta.ForeColor = Color.Black;
-            labelPergunta.Location = new Point(0, 212);
+            labelPergunta.Font = new Font("Segoe UI", 22F, FontStyle.Bold, GraphicsUnit.Point);
+            labelPergunta.ForeColor = Color.WhiteSmoke;
+            labelPergunta.Location = new Point(0, 138);
             labelPergunta.Name = "labelPergunta";
-            labelPergunta.Size = new Size(789, 109);
+            labelPergunta.Size = new Size(888, 183);
             labelPergunta.TabIndex = 2;
             labelPergunta.Text = "label1";
             labelPergunta.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // buttonProximo
             // 
-            buttonProximo.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            buttonProximo.Location = new Point(395, 398);
+            buttonProximo.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonProximo.Location = new Point(444, 398);
             buttonProximo.Name = "buttonProximo";
-            buttonProximo.Size = new Size(83, 30);
+            buttonProximo.Size = new Size(93, 30);
             buttonProximo.TabIndex = 3;
             buttonProximo.Text = "Proxima";
             buttonProximo.UseVisualStyleBackColor = true;
@@ -63,12 +62,14 @@
             // 
             // radioButtonSim
             // 
-            radioButtonSim.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radioButtonSim.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             radioButtonSim.AutoSize = true;
             radioButtonSim.BackColor = Color.Transparent;
-            radioButtonSim.Location = new Point(367, 324);
+            radioButtonSim.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Millimeter);
+            radioButtonSim.ForeColor = SystemColors.ButtonFace;
+            radioButtonSim.Location = new Point(281, 324);
             radioButtonSim.Name = "radioButtonSim";
-            radioButtonSim.Size = new Size(55, 24);
+            radioButtonSim.Size = new Size(121, 63);
             radioButtonSim.TabIndex = 7;
             radioButtonSim.TabStop = true;
             radioButtonSim.Text = "Sim";
@@ -77,23 +78,26 @@
             // 
             // radioButtonNao
             // 
-            radioButtonNao.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radioButtonNao.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             radioButtonNao.AutoSize = true;
             radioButtonNao.BackColor = Color.Transparent;
-            radioButtonNao.Location = new Point(365, 354);
+            radioButtonNao.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Millimeter);
+            radioButtonNao.ForeColor = SystemColors.ButtonFace;
+            radioButtonNao.Location = new Point(487, 324);
             radioButtonNao.Name = "radioButtonNao";
-            radioButtonNao.Size = new Size(58, 24);
+            radioButtonNao.Size = new Size(129, 63);
             radioButtonNao.TabIndex = 7;
             radioButtonNao.TabStop = true;
             radioButtonNao.Text = "Não";
             radioButtonNao.UseVisualStyleBackColor = false;
+            radioButtonNao.CheckedChanged += radioButtonNao_CheckedChanged;
             // 
             // buttonSair
             // 
-            buttonSair.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            buttonSair.Location = new Point(306, 398);
+            buttonSair.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            buttonSair.Location = new Point(344, 398);
             buttonSair.Name = "buttonSair";
-            buttonSair.Size = new Size(83, 30);
+            buttonSair.Size = new Size(93, 30);
             buttonSair.TabIndex = 3;
             buttonSair.Text = "Sair";
             buttonSair.UseVisualStyleBackColor = true;
@@ -101,18 +105,17 @@
             // 
             // FormQuestionario
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HotTrack;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(789, 440);
+            ClientSize = new Size(888, 440);
             Controls.Add(radioButtonNao);
             Controls.Add(radioButtonSim);
             Controls.Add(buttonSair);
             Controls.Add(buttonProximo);
             Controls.Add(labelPergunta);
-            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             Name = "FormQuestionario";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;

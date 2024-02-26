@@ -93,5 +93,10 @@ namespace UIWindowsForms
         {
 
         }
+
+        private void radioButtonNao_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

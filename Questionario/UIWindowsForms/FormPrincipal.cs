@@ -17,7 +17,7 @@ namespace UIWindowsForms
     {
         public int id;
         public readonly List<int> _categoriasSelecionadas;
-        public bool sair=true;
+        public bool sair = true;
 
         public FormPrincipal()
         {
@@ -29,7 +29,7 @@ namespace UIWindowsForms
         {
             id = 0;
 
-            while (sair==true)
+            while (sair == true)
             {
                 using (FormQuestionario frm = new FormQuestionario(id, this))
                 {
@@ -38,9 +38,9 @@ namespace UIWindowsForms
                     id = frm.IDs + 1;
                 }
             }
-            sair =true  ;
-            
-            
+            sair = true;
+
+
         }
 
         public void SaveSelectedCategoria(int idCategoria)
@@ -54,6 +54,21 @@ namespace UIWindowsForms
             {
                 frm.ShowDialog();
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

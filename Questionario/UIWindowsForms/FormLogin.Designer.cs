@@ -113,7 +113,7 @@
             buttonComfirmar.Name = "buttonComfirmar";
             buttonComfirmar.Size = new Size(94, 29);
             buttonComfirmar.TabIndex = 6;
-            buttonComfirmar.Text = "Comfirmar";
+            buttonComfirmar.Text = "Confirmar";
             buttonComfirmar.UseVisualStyleBackColor = true;
             buttonComfirmar.Click += buttonComfirmar_Click;
             // 
@@ -121,7 +121,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackColor = SystemColors.HotTrack;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(321, 392);
             Controls.Add(buttonComfirmar);
