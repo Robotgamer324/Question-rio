@@ -25,38 +25,35 @@ namespace UIWindowsForms
         {
             InitializeComponent();
         }
-
-
-        private void textBoxLogin_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBoxSenha_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonSair_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void buttonComfirmar_Click(object sender, EventArgs e)
         {
-            id1 = new UsuarioBLL().BuscarPorUsuario(textBoxLogin.Text).FirstOrDefault()?.id; // Assuming 'Login' is a property of the Usuario class
+            try
+            {
 
-
-
-        }
-
-        private void labelSenha_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelLogin_Click(object sender, EventArgs e)
-        {
-
+                if (new UsuarioBLL().ConfirmarUsuario(textBoxLogin.Text, textBoxSenha.Text)) 
+                {
+                  
+                    using (FormPrincipalADM frm = new FormPrincipalADM())
+                    {
+                        frm.ShowDialog();
+                        
+                    }
+                   
+                }
+                else
+                {
+                    MessageBox.Show("Usuario ou senha estão errados tente novamente mais tarde");
+                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("Usuario ou senha estão errados tente novamente mais tarde");
+            }
         }
     }
 }

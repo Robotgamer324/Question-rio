@@ -63,9 +63,10 @@ create table Usuario(
 );
 
 --select id, Categoria from Categoria where id =
-select id, usuario, senha, administrador from usuario
-insert into usuario (usuario, senha, administrador) values ('ADIMIN','123ABC',1)
+select id, usuario, senha from usuario
+insert into usuario (usuario, Senha) values ('ADIMIN','123ABC')
 
 declare @usuario varchar(250)
 declare @senha varchar(6)
-declare @administrador bit 
+
+DELETE FROM USUARIO where id=2

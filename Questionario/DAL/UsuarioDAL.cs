@@ -13,7 +13,6 @@ namespace DAL
         public int id { get; set; }
         public string usuario { get; set; }
         public string senha { get; set; }
-        public bool administrador { get; set; }
 
         public Usuario BuscarPorIdUsuario(int _id)
         {
@@ -22,7 +21,7 @@ namespace DAL
             try
             {
                 SqlCommand cmd = cn.CreateCommand();
-                cmd.CommandText = "select id, usuario, senha, administrador from usuario WHERE Id LIKE @Id";
+                cmd.CommandText = "select id, usuario, senha from usuario WHERE Id LIKE @Id";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@Id", _id + "%");
                 cn.Open();
@@ -34,7 +33,6 @@ namespace DAL
                         usuario.id = (int)rd["Id"];
                         usuario.usuario = rd["usuario"].ToString();
                         usuario.senha = rd["senha"].ToString();
-                        usuario.administrador = (bool)rd["administrador"];
 
                     }
                 }
@@ -58,7 +56,7 @@ namespace DAL
             {
 
                 SqlCommand cmd = cn.CreateCommand();
-                cmd.CommandText = "select id, usuario, senha, administrador from usuario LIKE @usuario";
+                cmd.CommandText = "select id, usuario, senha from usuario WHERE usuario LIKE @usuario";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@usuario", _nome + "%");
                 cn.Open();
@@ -70,7 +68,6 @@ namespace DAL
                         usuario.id = (int)rd["Id"];
                         usuario.usuario = rd["usuario"].ToString();
                         usuario.senha = rd["senha"].ToString();
-                        usuario.administrador = (bool)rd["administrador"];
 
                         usuarioList.Add(usuario);
 
@@ -97,7 +94,7 @@ namespace DAL
             {
 
                 SqlCommand cmd = cn.CreateCommand();
-                cmd.CommandText = "select id, usuario, senha, administrador from usuario LIKE @senha";
+                cmd.CommandText = "select id, usuario, senha from usuario where senha LIKE @senha";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@senha", _nome + "%");
                 cn.Open();
@@ -108,7 +105,6 @@ namespace DAL
                         Usuario usuario = new Usuario();
                         usuario.id = (int)rd["Id"];
                         usuario.usuario = rd["usuario"].ToString();
-                        usuario.administrador = (bool)rd["administrador"];
 
                         usuarioList.Add(usuario);
 
@@ -124,6 +120,51 @@ namespace DAL
             {
                 cn.Close();
             }
+
+        }
+        public List<Usuario> ComfirmarUsuario(string _usuario, string _senha)
+        {
+            SqlConnection cn = new SqlConnection(Constantes.StringDeConexao);
+            List<Usuario> usuarioList = new List<Usuario>();
+            try
+            {
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = "SELECT id, usuario, senha\r\nFROM usuario\r\nWHERE senha = @senha\r\nAND usuario = @usuario";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@usuario", _usuario);
+                cmd.Parameters.AddWithValue("@senha", _senha);
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        Usuario usuario = new Usuario();
+                        usuario.id = (int)rd["Id"];
+                        usuario.usuario = rd["usuario"].ToString();
+                        usuario.senha = rd["senha"].ToString();
+                        if (usuario.usuario != _usuario)
+                        {
+                            break;
+                        }
+                        if(usuario.senha != _senha)
+                        {
+                            break;
+                        }
+                        usuarioList.Add(usuario);
+
+                    }
+                }
+                return usuarioList;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception ("senha ou usuario estão icorretos tente novamnete");
+            }
+            finally
+            {
+                cn.Close();
+            }
+
 
         }
     }

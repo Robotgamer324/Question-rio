@@ -59,7 +59,6 @@
             labelSenha.Size = new Size(94, 37);
             labelSenha.TabIndex = 1;
             labelSenha.Text = "Senha";
-            labelSenha.Click += labelSenha_Click;
             // 
             // textBoxLogin
             // 
@@ -67,7 +66,6 @@
             textBoxLogin.Name = "textBoxLogin";
             textBoxLogin.Size = new Size(215, 27);
             textBoxLogin.TabIndex = 2;
-            textBoxLogin.TextChanged += textBoxLogin_TextChanged;
             // 
             // textBoxSenha
             // 
@@ -75,7 +73,6 @@
             textBoxSenha.Name = "textBoxSenha";
             textBoxSenha.Size = new Size(215, 27);
             textBoxSenha.TabIndex = 3;
-            textBoxSenha.TextChanged += textBoxSenha_TextChanged;
             // 
             // labelLogin
             // 
@@ -88,7 +85,6 @@
             labelLogin.Size = new Size(89, 37);
             labelLogin.TabIndex = 1;
             labelLogin.Text = "Login";
-            labelLogin.Click += labelLogin_Click;
             // 
             // pictureBox1
             // 

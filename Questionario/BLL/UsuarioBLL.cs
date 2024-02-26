@@ -27,5 +27,9 @@ namespace BLL
         {
             return new UsuarioDAL().BuscarPorIdUsuario(_id);
         }
+        public bool ConfirmarUsuario(string usuario, string senha)
+        {
+            return new UsuarioDAL().ComfirmarUsuario(usuario, senha).Any();
+        }
     }
 }
