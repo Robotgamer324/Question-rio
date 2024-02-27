@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.VisualBasic;
 using Models;
 using System.Data.SqlClient;
 
@@ -12,8 +13,6 @@ namespace DAL
 
         public int id_categoria { get; set; }
 
-        public int id;
-        public string perguntas2;
         public List<Perguntas> BuscarTodos()
         {
             Perguntas perguntas;
@@ -23,7 +22,7 @@ namespace DAL
             {
 
                 SqlCommand cmd = cn.CreateCommand();
-                cmd.CommandText = "SELECT id, pergunta FROM Perguntas;";
+                cmd.CommandText = "SELECT id, pergunta, id_categoria FROM Perguntas";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cn.Open();
                 using (SqlDataReader rd = cmd.ExecuteReader())
@@ -33,7 +32,8 @@ namespace DAL
                         perguntas = new Perguntas();
                         perguntas.id = (int)rd["Id"];
                         perguntas.pergunta = rd["pergunta"].ToString();
-                        
+                        perguntas.id_categoria = (int)rd["id_categoria"];
+
                         perguntaslist.Add(perguntas);
                     }
 
@@ -50,6 +50,43 @@ namespace DAL
             }
 
         }
+        public List<Perguntas> BuscarPorIdCategoria(int _idCategoria)
+        {
+            Perguntas perguntas;
+            SqlConnection cn = new SqlConnection(Constantes.StringDeConexao);
+            List<Perguntas> perguntaslist = new List<Perguntas>();
+            try
+            {
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = "SELECT id, pergunta, id_categoria FROM Perguntas WHERE id_categoria LIKE @Id_categoria";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@id_categoria", _idCategoria + "%");
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    perguntas = new Perguntas();
+                    while (rd.Read())
+                    {
+                        perguntas = new Perguntas();
+                        perguntas.id = (int)rd["Id"];
+                        perguntas.pergunta = rd["pergunta"].ToString();
+                        perguntas.id_categoria = (int)rd["id_categoria"];
+
+                        perguntaslist.Add(perguntas);
+
+                    }
+                }
+                return perguntaslist;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar inserir o perguntas no banco de dados", ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
         public List<Perguntas> BuscarPorPergunta(string _nome)
         {
 
@@ -59,7 +96,7 @@ namespace DAL
             {
 
                 SqlCommand cmd = cn.CreateCommand();
-                cmd.CommandText = "SELECT id, pergunta FROM Perguntas WHERE pergunta LIKE @pergunta";
+                cmd.CommandText = "SELECT id, pergunta, id_categoria FROM Perguntas LIKE @pergunta";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@pergunta", _nome + "%");
                 cn.Open();
@@ -70,7 +107,8 @@ namespace DAL
                         Perguntas perguntas = new Perguntas();
                         perguntas.id = (int)rd["Id"];
                         perguntas.pergunta = rd["pergunta"].ToString();
-                        
+                        perguntas.id_categoria = (int)rd["id_categoria"];
+
                         perguntasList.Add(perguntas);
 
                     }
@@ -123,16 +161,12 @@ namespace DAL
                 {
                     cn.Open();
 
-                    string sql = @"UPDATE id, perguntas
-                              SET id = @id,
-                                  pergunta = @pergunta,
-                              WHERE Id = @Id";
-
+                    string sql = @"update Perguntas set pergunta = @pergunta, id_categoria = @id_categoria where id = @id";
                     using (SqlCommand cmd = new SqlCommand(sql, cn))
                     {
-                        cmd.Parameters.AddWithValue("@id", this.Id);
                         cmd.Parameters.AddWithValue("@pergunta", this.Pergunta);
-                        cmd.ExecuteNonQuery();
+                        cmd.Parameters.AddWithValue("@id_categoria", this.id_categoria);
+                        cmd.ExecuteNonQuery(); 
                     }
                 }
                 catch (Exception ex)
@@ -205,38 +239,6 @@ namespace DAL
                 {
                     cn.Close();
                 }
-            }
-        }
-        public Perguntas BuscarPorIdCategoria(int _idCategoria)
-        {
-            Perguntas perguntas;
-            SqlConnection cn = new SqlConnection(Constantes.StringDeConexao);
-            try
-            {
-                SqlCommand cmd = cn.CreateCommand();
-                cmd.CommandText = "SELECT id, pergunta, id_categoria FROM Perguntas WHERE Id LIKE @Id_categoria";
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@Id", _idCategoria + "%");
-                cn.Open();
-                using (SqlDataReader rd = cmd.ExecuteReader())
-                {
-                    perguntas = new Perguntas();
-                    while (rd.Read())
-                    {
-                        perguntas.id = (int)rd["Id"];
-                        perguntas.pergunta = rd["pergunta"].ToString();
-
-                    }
-                }
-                return perguntas;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Ocorreu um erro ao tentar inserir o perguntas no banco de dados", ex);
-            }
-            finally
-            {
-                cn.Close();
             }
         }
 

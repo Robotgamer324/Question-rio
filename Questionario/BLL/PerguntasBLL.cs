@@ -41,9 +41,9 @@ namespace BLL
         {
             return new PerguntasDAL().BuscarPorId(_id);
         }
-        public void BuscarPorIdCategoria(int _idCategoria)
+        public List<Perguntas> BuscarPorIdCategoria(int _idCategoria)
         {
-            new PerguntasDAL().BuscarPorIdCategoria(_idCategoria);
+            return new PerguntasDAL().BuscarPorIdCategoria(_idCategoria);
         }
         public List<int> ObterListaComIdCategoria(int _idCategoria)
         {

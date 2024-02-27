@@ -8,3 +8,13 @@ WHERE senha = @senha
 AND usuario = @usuario
 
 ALTER TABLE USUARIO DROP COLUMN ADMINISTRADOR;
+
+declare @id int 
+declare @pergunta Varchar(250)
+declare @id_categoria INT
+set @id = 1
+set @pergunta = 'Tem facilidade em aprender novas tecnologias?'
+set @id_categoria=1
+
+update Perguntas set pergunta = @pergunta, id_categoria = @id_categoria where id=@id
+select * from Perguntas

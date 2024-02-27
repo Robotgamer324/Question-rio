@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,28 +13,25 @@ namespace UIWindowsForms
 {
     public partial class FormPrincipalADM : Form
     {
-        public FormPrincipalADM()
+        public string _usuario;
+        public FormPrincipalADM(string _nome)
         {
+            _usuario = _nome;
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void FormPrincipalADM_Load(object sender, EventArgs e)
         {
+            label1.Text = ("Bem vindo " + _usuario);
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void buttonAlterarQuetionario_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
+            using FormBuscarPerguntas frm = new FormBuscarPerguntas();
+            {
+                frm.ShowDialog();
+            }
 
         }
     }

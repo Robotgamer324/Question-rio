@@ -38,7 +38,7 @@ namespace UIWindowsForms
                 if (new UsuarioBLL().ConfirmarUsuario(textBoxLogin.Text, textBoxSenha.Text)) 
                 {
                   
-                    using (FormPrincipalADM frm = new FormPrincipalADM())
+                    using (FormPrincipalADM frm = new FormPrincipalADM(textBoxLogin.Text))
                     {
                         frm.ShowDialog();
                         

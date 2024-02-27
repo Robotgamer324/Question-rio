@@ -31,6 +31,10 @@
             components = new System.ComponentModel.Container();
             comboBoxBuscarPor = new ComboBox();
             dataGridViewUsuario = new DataGridView();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            perguntaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            idcategoriaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            perguntasBindingSource = new BindingSource(components);
             label3 = new Label();
             label4 = new Label();
             buttonExcluir = new Button();
@@ -39,10 +43,6 @@
             buttonAlterar = new Button();
             buttonBuscar = new Button();
             textBoxBuscarPor = new TextBox();
-            perguntasBindingSource = new BindingSource(components);
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            perguntaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            idcategoriaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsuario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)perguntasBindingSource).BeginInit();
             SuspendLayout();
@@ -51,7 +51,7 @@
             // 
             comboBoxBuscarPor.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxBuscarPor.FormattingEnabled = true;
-            comboBoxBuscarPor.Items.AddRange(new object[] { "Pergunta", "Id", "Id categoria" });
+            comboBoxBuscarPor.Items.AddRange(new object[] { "Pergunta", "Id", "Id categoria", "Todos" });
             comboBoxBuscarPor.Location = new Point(12, 130);
             comboBoxBuscarPor.Name = "comboBoxBuscarPor";
             comboBoxBuscarPor.Size = new Size(151, 28);
@@ -73,6 +73,37 @@
             dataGridViewUsuario.RowTemplate.Height = 29;
             dataGridViewUsuario.Size = new Size(997, 239);
             dataGridViewUsuario.TabIndex = 34;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            idDataGridViewTextBoxColumn.HeaderText = "id";
+            idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // perguntaDataGridViewTextBoxColumn
+            // 
+            perguntaDataGridViewTextBoxColumn.DataPropertyName = "pergunta";
+            perguntaDataGridViewTextBoxColumn.HeaderText = "pergunta";
+            perguntaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            perguntaDataGridViewTextBoxColumn.Name = "perguntaDataGridViewTextBoxColumn";
+            perguntaDataGridViewTextBoxColumn.ReadOnly = true;
+            perguntaDataGridViewTextBoxColumn.Width = 700;
+            // 
+            // idcategoriaDataGridViewTextBoxColumn
+            // 
+            idcategoriaDataGridViewTextBoxColumn.DataPropertyName = "id_categoria";
+            idcategoriaDataGridViewTextBoxColumn.HeaderText = "id_categoria";
+            idcategoriaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            idcategoriaDataGridViewTextBoxColumn.Name = "idcategoriaDataGridViewTextBoxColumn";
+            idcategoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            idcategoriaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // perguntasBindingSource
+            // 
+            perguntasBindingSource.DataSource = typeof(Models.Perguntas);
             // 
             // label3
             // 
@@ -111,6 +142,7 @@
             buttonCancelar.TabIndex = 28;
             buttonCancelar.Text = "&Cancelar";
             buttonCancelar.UseVisualStyleBackColor = true;
+            buttonCancelar.Click += buttonCancelar_Click;
             // 
             // buttonInserir
             // 
@@ -129,6 +161,7 @@
             buttonAlterar.TabIndex = 30;
             buttonAlterar.Text = "&Alterar";
             buttonAlterar.UseVisualStyleBackColor = true;
+            buttonAlterar.Click += buttonAlterar_Click;
             // 
             // buttonBuscar
             // 
@@ -138,6 +171,7 @@
             buttonBuscar.TabIndex = 31;
             buttonBuscar.Text = "&Buscar";
             buttonBuscar.UseVisualStyleBackColor = true;
+            buttonBuscar.Click += buttonBuscar_Click;
             // 
             // textBoxBuscarPor
             // 
@@ -145,37 +179,6 @@
             textBoxBuscarPor.Name = "textBoxBuscarPor";
             textBoxBuscarPor.Size = new Size(430, 27);
             textBoxBuscarPor.TabIndex = 26;
-            // 
-            // perguntasBindingSource
-            // 
-            perguntasBindingSource.DataSource = typeof(Models.Perguntas);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            idDataGridViewTextBoxColumn.HeaderText = "id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // perguntaDataGridViewTextBoxColumn
-            // 
-            perguntaDataGridViewTextBoxColumn.DataPropertyName = "pergunta";
-            perguntaDataGridViewTextBoxColumn.HeaderText = "pergunta";
-            perguntaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            perguntaDataGridViewTextBoxColumn.Name = "perguntaDataGridViewTextBoxColumn";
-            perguntaDataGridViewTextBoxColumn.ReadOnly = true;
-            perguntaDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // idcategoriaDataGridViewTextBoxColumn
-            // 
-            idcategoriaDataGridViewTextBoxColumn.DataPropertyName = "id_categoria";
-            idcategoriaDataGridViewTextBoxColumn.HeaderText = "id_categoria";
-            idcategoriaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idcategoriaDataGridViewTextBoxColumn.Name = "idcategoriaDataGridViewTextBoxColumn";
-            idcategoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            idcategoriaDataGridViewTextBoxColumn.Width = 125;
             // 
             // FormBuscarPerguntas
             // 
@@ -213,9 +216,9 @@
         private Button buttonAlterar;
         private Button buttonBuscar;
         private TextBox textBoxBuscarPor;
+        private BindingSource perguntasBindingSource;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn perguntaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn idcategoriaDataGridViewTextBoxColumn;
-        private BindingSource perguntasBindingSource;
     }
 }

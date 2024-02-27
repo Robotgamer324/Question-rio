@@ -36,10 +36,9 @@ update Categoria set categoria =('TI') where id=1
 
 SELECT pergunta, id_categoria FROM Perguntas 
 
-declare @id int 
-declare @pergunta Varchar(250)
-declare @id_categoria INT
-
+dECLARE @ID INT
+declare @id int
+declare @Id int
 
 UPDATE Perguntas  SET id=(1)WHERE Id = 2
 
@@ -70,3 +69,10 @@ declare @usuario varchar(250)
 declare @senha varchar(6)
 
 DELETE FROM USUARIO where id=2
+
+
+
+                           
+                                  
+                                  
+                              
